@@ -1,0 +1,55 @@
+/ = Root directory
+
+
+
+= File structure
+
+/
+├── bin
+├── boot
+├── dev
+├── etc
+├── home
+├── lib
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+
+
+
+
+= Most Important Directories for DevOps
+| Directory  | Purpose             | DevOps Importance |
+| ---------- | ------------------- | ----------------: |
+| `/`        | Filesystem root     |             ⭐⭐⭐⭐⭐ |
+| `/home`    | User files          |              ⭐⭐⭐⭐ |
+| `/root`    | Root user's home    |               ⭐⭐⭐ |
+| `/etc`     | Configuration       |             ⭐⭐⭐⭐⭐ |
+| `/var/log` | Logs                |             ⭐⭐⭐⭐⭐ |
+| `/var`     | Variable data       |             ⭐⭐⭐⭐⭐ |
+| `/usr/bin` | Programs            |              ⭐⭐⭐⭐ |
+| `/tmp`     | Temporary files     |               ⭐⭐⭐ |
+| `/opt`     | Optional software   |               ⭐⭐⭐ |
+| `/dev`     | Devices             |               ⭐⭐⭐ |
+| `/proc`    | Process/kernel info |              ⭐⭐⭐⭐ |
+| `/boot`    | Boot files          |                ⭐⭐ |
+
+
+
+/etc
+/var
+/var/log
+/home
+/usr
+/tmp
+/opt

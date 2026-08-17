@@ -1,0 +1,33 @@
+1. Linux
+2. Bash
+3. Networking
+4. Git, GitHub and GitLab
+5. Web Servers and Reverse proxy
+6. Docker
+7. CI/CD
+8. Cloud
+9. Infrastructure as Code
+10. Kubernetes
+11. Monitoring and Observability
+12. DevSecOps
+
+
+| Area                     | Learn           |
+| ------------------------ | --------------- |
+| OS                       | Ubuntu Linux    |
+| Shell                    | Bash            |
+| Programming              | Python          |
+| Version Control          | Git + GitHub    |
+| Web Server               | Nginx           |
+| Containers               | Docker          |
+| Compose                  | Docker Compose  |
+| CI/CD                    | GitHub Actions  |
+| Cloud                    | AWS             |
+| IaC                      | Terraform       |
+| Containers Orchestration | Kubernetes      |
+| Packaging                | Helm            |
+| Monitoring               | Prometheus      |
+| Dashboard                | Grafana         |
+| Logs                     | Loki            |
+| Security                 | Trivy           |
+| Configuration            | Ansible — later |

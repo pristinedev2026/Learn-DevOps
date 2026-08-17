@@ -1,0 +1,8 @@
+= Variable data
+/var 
+
+
+eg:
+/var/log
+/var/cache
+/var/lib

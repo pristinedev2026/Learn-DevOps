@@ -1,0 +1,6 @@
+= Process and Kernel information
+/proc 
+
+
+Note:
+It is a virtual filesystem containing information about: processes, memory, CPU, kernel, system information.

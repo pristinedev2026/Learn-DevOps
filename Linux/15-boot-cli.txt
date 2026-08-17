@@ -1,0 +1,10 @@
+= Boot files
+/boot 
+
+
+Note:
+It contains files required for booting Linux.
+
+eg:
+/boot/vmlinuz
+/boot/initrd

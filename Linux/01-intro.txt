@@ -1,0 +1,9 @@
+What is Linux?
+Linux is an operating system kernel used by many operating systems/distributions such as:
+Ubuntu
+Debian
+Red Hat Enterprise Linux (RHEL)
+Rocky Linux
+AlmaLinux
+Fedora
+Amazon Linux

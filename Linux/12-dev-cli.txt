@@ -1,0 +1,13 @@
+= Devices
+/dev 
+
+
+
+Note:
+It contains device files. Linux represents many hardware devices as files.
+
+
+eg:
+/dev/sda
+/dev/sdb
+/dev/null       -> One particularly important file and it is commonly used to discard output.

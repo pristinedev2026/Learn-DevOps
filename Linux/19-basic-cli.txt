@@ -1,0 +1,123 @@
+= Where I am?
+pwd  -> print working directory
+
+
+
+---------------------------------------------------------
+
+= List files 
+ls 
+
+result:
+    Documents
+    Downloads
+    Projects
+    test.txt
+
+
+= Show detailed information
+ls -l 
+
+result:
+    drwxr-xr-x 2 developer developer 4096 Aug 17 Documents
+    -rw-r--r-- 1 developer developer  250 Aug 17 test.txt
+
+
+= Show hidden files 
+ls -a
+
+Note: Linux hidden files commonly begin with: .  
+
+eg:
+    .bashrc
+    .profile
+    .gitconfig
+
+
+= Combind
+ls -la 
+
+Note:
+    -l → detailed/list format
+    -a → include hidden files
+
+
+
+---------------------------------------------------------
+
+= Change directory
+cd 
+
+eg: cd /etc
+
+
+cd ~  -> go to home 
+cd /  -> go to root 
+cd ..  -> go to parent 
+cd -   -> go back to previous directory
+
+---------------------------------------------------------
+
+= Create directory
+mkdir -> make directory
+
+eg: mkdir project      -> create single directory
+    mkdir frontend backend backup -> create multiple directories
+    mkdir -p project/frontend/components   -> create nested directories 
+
+Note: The -p option creates the parent directories if necessary.
+
+
+---------------------------------------------------------
+
+= Create empty file 
+touch 
+
+eg: touch test.txt -> create single file
+    touch app.txt demo.txt -> create multiple files
+
+---------------------------------------------------------
+
+= Display file contents
+cat 
+
+
+eg: cat test.txt 
+
+---------------------------------------------------------
+
+= Read large file 
+less 
+
+eg: less /var/log/sys.log 
+
+Note:   Space → next page
+        b     → previous page
+        q     → quit
+
+---------------------------------------------------------
+
+= Beginning of file 
+head 
+
+eg: head khuntunlar.txt -> shows the beginning of a file.
+    head -n 20 khuntunlar.txt -> shows the first 20 lines. 
+
+---------------------------------------------------------
+
+= End of file 
+tail
+
+eg: tail khuntunlar.txt -> shows the last part of a file.
+    tail -f laravel.log -> 
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------
+---------------------------------------------------------

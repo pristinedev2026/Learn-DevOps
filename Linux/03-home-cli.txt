@@ -1,0 +1,38 @@
+= User home directories
+/home 
+
+
+eg:
+/home
+├── alice
+├── bob
+└── developer
+
+= Check home directory 
+echo $HOME 
+(or)
+~ 
+(or)
+cd ~ (or) cd /home/khuntunlar
+
+
+
+
+---------------------------------------------------------
+
+= Root user's home
+/root 
+
+/root
+├── .bashrc
+├── scripts
+└── backups
+
+
+Note:
+| Path         | Meaning                       |
+| ------------ | ----------------------------- |
+| /          | Filesystem root               |
+| /root      | Home directory of root user   |
+| /home/user | Home directory of normal user |
+

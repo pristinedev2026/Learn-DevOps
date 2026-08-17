@@ -1,0 +1,10 @@
+= Configuration files
+/etc
+
+
+eg:
+/etc/hosts
+/etc/passwd
+/etc/ssh/
+/etc/nginx/
+/etc/systemd/

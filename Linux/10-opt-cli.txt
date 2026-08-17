@@ -1,0 +1,7 @@
+= Optional software
+/opt 
+
+
+eg:
+/opt/myapp
+/opt/company-app

@@ -1,0 +1,10 @@
+= Mount point 
+/mnt 
+
+
+Note:
+It is commonly used as a temporary/manual mount point for filesystems.
+
+
+eg:
+mount /dev/sdb1 /mnt

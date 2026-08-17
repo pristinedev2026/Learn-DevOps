@@ -1,0 +1,21 @@
+= Paths
+1. Absolute path 
+    It starts from /
+    eg: /home/developer/project   
+    It tells Linux exactly where the file is.
+2. Relative path 
+    It starts from current directory.
+    eg:      Suppose you're here: /home/developer
+             and there is: /home/developer/project
+             You can access it using: project
+             instead of: /home/developer/project
+
+
+
+---------------------------------------------
+= . and .. 
+
+. -> current directory
+.. -> parent directory
+
+eg: cd ..    ->  go up one directory

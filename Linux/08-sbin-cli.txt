@@ -1,0 +1,9 @@
+= System administration commands
+/sbin 
+
+
+
+eg:
+networking
+system administration
+filesystem management

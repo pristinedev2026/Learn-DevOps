@@ -1,0 +1,6 @@
+= Temporary file
+/tmp 
+
+
+Note:
+Be careful about relying on files in /tmp permanently. Temporary directories can be cleaned automatically.

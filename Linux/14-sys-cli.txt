@@ -1,0 +1,9 @@
+= Kernel and Hardware information
+/sys 
+   
+
+Note:
+It provides information and interfaces related to the Linux kernel and hardware.
+
+/proc → processes/kernel information
+/sys  → kernel/hardware information

@@ -1,0 +1,9 @@
+= User programs and utilities
+/usr 
+
+
+eg:
+/usr/bin
+/usr/sbin
+/usr/lib
+/usr/share

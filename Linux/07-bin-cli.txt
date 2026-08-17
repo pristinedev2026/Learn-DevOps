@@ -1,0 +1,9 @@
+= Essential commands
+/bin 
+
+eg:
+ls
+cp
+mv
+cat
+rm

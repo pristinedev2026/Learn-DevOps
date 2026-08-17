@@ -1,0 +1,6 @@
+= Removable media
+/media 
+
+
+Note:
+It is commonly used for automatically mounted removable devices such as USB drives.
