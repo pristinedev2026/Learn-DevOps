@@ -51,10 +51,29 @@ tail -n 20 /var/log/syslog      // Show the last 20 lines
 tail -f /var/log/syslog         // real-time log  // -f means follow
 
 ---------------------------------------------
+= store persistent application/system state(Data that applications need to keep between restarts)
+/var/lib
 
+eg:
+/var/lib/docker
+/var/lib/mysql
+/var/lib/postgresql
+/var/lib/apt
+
+eg: docker
+/var/lib/docker
+│
+├── containers
+├── image
+├── volumes
+└── ...
 
 ---------------------------------------------
+= store cached data(data saved temporarily so the system can access it faster later)
+/var/cache
 
+eg:
+/var/cache/apt/archives
 
 ---------------------------------------------
 
