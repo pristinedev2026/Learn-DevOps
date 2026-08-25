@@ -1,1 +1,11 @@
-
+1. Linux file structure   ✅
+2. home ✅
+3. etc:  hostname ✅
+         hosts    ✅
+         passwd   ✅
+         shadow   ✅
+         group   ✅
+         ssh   ✅
+         systemd   ✅
+         passwd   ✅
+         passwd   ✅
