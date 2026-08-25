@@ -207,6 +207,91 @@ eg:
 ~/.bashrc
 
 -------------------------------------------------
+= Contains DNS resolver configuration
+/etc/resolv.conf
+
+eg:
+nameserver 8.8.8.8
+
+
+DNS works roughly like:
+google.com
+    ↓
+DNS resolver
+    ↓
+IP address
+    ↓
+server
+
+
+Note:
+However, on many modern Linux systems, /etc/resolv.conf may be generated or managed automatically by another service, so don't blindly edit it.
+
+-------------------------------------------------
+= identifying the Linux distribution
+/etc/os-release
+
+cat /etc/os-release
+
+result:
+NAME="Ubuntu"
+VERSION="24.04.3 LTS"
+ID=ubuntu
+
+-------------------------------------------------
+= Scheduled tasks(Cron allows you to execute commands automatically)
+/etc/cron*         
+
+eg:
+/etc/crontab
+/etc/cron.hourly/
+/etc/cron.daily/
+/etc/cron.weekly/
+/etc/cron.monthly/
+
 
 
 -------------------------------------------------
+
+= Most important /etc files
+| File/Directory     | Purpose                           |
+| ------------------ | --------------------------------- |
+| `/etc/hostname`    | Server hostname                   |
+| `/etc/hosts`       | Local hostname → IP mapping       |
+| `/etc/passwd`      | User accounts                     |
+| `/etc/shadow`      | Password authentication           |
+| `/etc/group`       | Groups                            |
+| `/etc/fstab`       | Filesystem mounting               |
+| `/etc/ssh/`        | SSH configuration                 |
+| `/etc/systemd/`    | Service configuration             |
+| `/etc/nginx/`      | Nginx configuration               |
+| `/etc/apt/`        | Package management                |
+| `/etc/environment` | System-wide environment variables |
+| `/etc/profile`     | Shell initialization              |
+| `/etc/resolv.conf` | DNS configuration                 |
+| `/etc/os-release`  | Linux distribution information    |
+| `/etc/crontab`     | Scheduled jobs                    |
+
+
+
+
+= 🧠 Easy way to remember
+/etc
+ │
+ ├── Users       → passwd, shadow, group
+ │
+ ├── Network     → hosts, resolv.conf
+ │
+ ├── Server      → hostname
+ │
+ ├── SSH         → ssh/
+ │
+ ├── Services    → systemd/
+ │
+ ├── Web Server  → nginx/
+ │
+ ├── Storage     → fstab
+ │
+ ├── Packages    → apt/
+ │
+ └── Automation  → cron
