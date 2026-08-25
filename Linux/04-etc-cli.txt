@@ -1,10 +1,167 @@
 = Configuration files
-/etc
+/etc is main linux system file configuration.
 
 
 eg:
-/etc/hosts
+/etc/
+├── hostname
+├── hosts
+├── passwd
+├── group
+├── shadow
+├── ssh/
+├── nginx/
+├── systemd/
+├── apt/
+└── fstab
+
+
+-------------------------------------------------
+= Contains the computer/server's hostname
+cat /etc/hostname (or) hostname
+
+-------------------------------------------------
+= Maps hostnames to IP addresses locally
+cat /etc/hosts
+ping web-server
+
+-------------------------------------------------
+= Contains information about Linux user accounts
+cat /etc/passwd 
+
+Important fields:
+username
+password placeholder
+UID
+GID
+description
+home directory
+login shell
+
+
+
+eg:
+john:x:1000:1000:John:/home/john:/bin/bash
+
+means:
+Username       → john
+UID            → 1000
+GID            → 1000
+Home           → /home/john
+Shell          → /bin/bash
+
+Each line contains fields separated by :
+username
+   ↓
+john:x:1000:1000:John:/home/john:/bin/bash
+    ↑
+ password placeholder
+
+-------------------------------------------------
+= Contains password-related authentication information.
+sudo cat /etc/shadow
+
+difference:
 /etc/passwd
-/etc/ssh/
-/etc/nginx/
-/etc/systemd/
+        ↓
+User account information
+
+/etc/shadow
+        ↓
+Password authentication information
+
+
+-------------------------------------------------
+= Contains Linux group information
+cat /etc/group
+
+eg:
+sudo:x:27:john
+docker:x:998:john
+
+This tells us that john belongs to groups.
+
+-------------------------------------------------
+= File System Table(The most important files for system administration)
+cat /etc/fstab
+
+It defines filesystems that Linux should mount.
+
+eg:
+UUID=xxxx / ext4 defaults 0 1
+
+It can control things such as:
+Disk
+ ↓
+Partition
+ ↓
+Mount point
+ ↓
+Filesystem
+
+eg:
+/dev/sdb1 → /data
+
+After configuring it, Linux can automatically mount /data during boot.
+⚠️ Be careful when editing /etc/fstab. A mistake can prevent a Linux system from booting correctly.
+
+
+
+-------------------------------------------------
+= SSH Configuration
+sudo ls /etc/ssh
+
+result:
+sshd_config  // The most important one for an SSH server
+ssh_config
+
+sudo cat /etc/ssh/sshd_config // This controls how the SSH server behaves.
+result:
+Port 22
+PermitRootLogin no
+PasswordAuthentication yes
+
+
+-------------------------------------------------
+= Modern Linux systems commonly use systemd to manage services
+ls /etc/systemd
+result:
+system/
+user/
+
+
+/etc/systemd/system/    // Service configuration files
+
+eg:
+/etc/systemd/system/myapp.service
+
+myapp.service
+     ↓
+Node.js application
+     ↓
+systemd
+     ↓
+Linux server
+
+
+Then manage it with:
+sudo systemctl start myapp
+sudo systemctl stop myapp
+sudo systemctl restart myapp
+sudo systemctl status myapp
+
+-------------------------------------------------
+
+-------------------------------------------------
+
+
+-------------------------------------------------
+
+
+-------------------------------------------------
+
+
+-------------------------------------------------
+
+
+-------------------------------------------------
