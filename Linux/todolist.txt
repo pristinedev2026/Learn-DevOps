@@ -17,8 +17,8 @@
 4. var:  log ✅
          lib ✅
          cache ✅
-         log ✅
-         log ✅
-         log ✅
-         log ✅
-         log ✅
+         run ✅
+         tmp ✅
+         spool ✅
+         mail ✅
+         opt ✅
