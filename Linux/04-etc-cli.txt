@@ -151,15 +151,60 @@ sudo systemctl restart myapp
 sudo systemctl status myapp
 
 -------------------------------------------------
+= nginx configuration file
+/etc/nginx
+
+Typical structure:
+/etc/nginx/
+├── nginx.conf                     // main configuration file
+├── sites-available/
+└── sites-enabled/
+
+sudo vi /etc/nginx/nginx.conf
+
+eg:
+Client
+   ↓
+Nginx
+   ↓
+React / Node.js
+   ↓
+Backend API
+   ↓
+Database
+
 
 -------------------------------------------------
+= APT Configuration
+/etc/atp
+
+eg:
+/etc/apt/sources.list       // package downloaded lists
+/etc/apt/sources.list.d/
+
+sudo apt update
 
 
 -------------------------------------------------
+= Can contain system-wide environment variables
+/etc/environment
 
+eg:
+JAVA_HOME="/usr/lib/jvm/java-21"
+NODE_ENV
+DATABASE_URL
+PORT
+AWS_REGION
+PATH
 
 -------------------------------------------------
+= Controls system-wide shell initialization for login shells
+/etc/profile
 
+eg:
+/etc/profile            // System-wide
+/etc/bash.bashrc        // Current user's Bash configuration
+~/.bashrc
 
 -------------------------------------------------
 
