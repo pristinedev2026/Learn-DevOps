@@ -7,5 +7,11 @@
          group   ✅
          ssh   ✅
          systemd   ✅
-         passwd   ✅
-         passwd   ✅
+         nginx   ✅
+         apt   ✅
+         environment   ✅
+         profile   ✅
+         resolv.conf   ✅
+         os-release   ✅
+         cron*   ✅
+4.
