@@ -76,18 +76,144 @@ eg:
 /var/cache/apt/archives
 
 ---------------------------------------------
+= contain runtime information about running processes and services
+/var/run
+
+ls -ld /var/run
+result:
+/var/run -> /run
+
+
+= What is runtime data?
+eg:
+services may create:
+PID files   // Process ID  eg., nginx.pid (This allows the system or administrator to identify the running process)
+socket files
+runtime state
+
+---------------------------------------------
+= temporary files
+/var/tmp          // similar to /tmp
+
+Difference:
+/tmp  -> temporary files and usually intended for short-term use.
+/var/tmp -> Temporary files that may need to survive a reboot.
+
+
+Note:
+/tmp      → temporary
+/var/tmp  → temporary, but more persistent
+
+---------------------------------------------
+= contain data waiting to be processed.
+/var/spool
+
+eg:
+/var/spool/cron
+/var/spool/mail
+
+Think of a queue:
+Application
+     ↓
+/var/spool
+     ↓
+Processing
+
+Jobs can wait there until another service processes them.
+---------------------------------------------
+= local user mailboxes
+/var/mail
+
+eg:
+/var/mail/user1
+/var/mail/user2
+
+
+// This is less important for modern DevOps work, but it's useful to recognize.
+---------------------------------------------
+= contain variable data for applications installed(It's less commonly encountered than /var/log or /var/lib)
+/var/opt
+
+
+= /var vs /etc vs /home
+| Directory | Purpose                          | Example                    |
+| --------- | -------------------------------- | -------------------------- |
+| `/etc`    | Configuration                    | `/etc/nginx/nginx.conf`    |
+| `/home`   | User files                       | `/home/user/project`       |
+| `/var`    | Changing application/system data | `/var/log/nginx/error.log` |
+| `/tmp`    | Temporary files                  | `/tmp/test.txt`            |
+| `/usr`    | Installed programs/shared files  | `/usr/bin/git`             |
+
+
+= A simple way to remember:
+/etc   → How should it work?
+/home  → What does the user own?
+/var   → What data is changing?
+/tmp   → What is temporarily needed?
+/usr   → What programs/files are installed?
+
+
 
 
 ---------------------------------------------
+= useful cli
+ls -lah /var
+du -sh /var/log   // check disk usage
+du -sh /var/*      // Check individual directories
+df -h
 
 
----------------------------------------------
+
+du -> Which directories/files are using space?
+df -> How much disk space is available?
+
+Note:
+df → Disk filesystem usage
+du → Directory/file usage
 
 
----------------------------------------------
 
 
----------------------------------------------
+= Important security lesson ⚠️
+Don't randomly delete things under /var
+
+eg:
+sudo rm -rf /var/*      // Never do this
+
+/var contains important system and application data.
+
+Instead, first investigate:
+du -sh /var/*
+
+Then identify what is consuming space.
+For logs, package caches, Docker data, etc., use the appropriate cleanup procedure.
 
 
----------------------------------------------
+----------------------------------------------------------------------------
+
+= /var mental map
+/var
+│
+├── cache   → Cached data
+│
+├── lib     → Persistent application/system data
+│             └── docker
+│
+├── log     → Logs ⭐⭐⭐
+│             ├── system logs
+│             ├── nginx logs
+│             └── application logs
+│
+├── mail    → Local mail
+│
+├── opt     → Variable data for /opt applications
+│
+├── run     → Runtime information
+│             └── usually linked to /run
+│
+├── spool   → Queues / waiting jobs
+│
+└── tmp     → More persistent temporary files
+
+
+
