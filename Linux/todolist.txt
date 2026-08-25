@@ -14,4 +14,11 @@
          resolv.conf   ✅
          os-release   ✅
          cron*   ✅
-4.
+4. var:  log ✅
+         lib ✅
+         cache ✅
+         log ✅
+         log ✅
+         log ✅
+         log ✅
+         log ✅
