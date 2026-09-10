@@ -7,3 +7,144 @@ eg:
 /usr/sbin
 /usr/lib
 /usr/share
+
+
+= /usr(Unix System Resources)
+/usr is one of the most important directories in Linux.
+it mainly contains installed programs, libraries, documentation, and other read-only/shared resources used by users and applications.
+
+Note:
+/usr = programs and resources that are normally shared by the system
+
+
+
+= cli
+ls /
+ls /usr
+
+/usr: 
+    bin        // Most user commands/programs
+    include    // Header files for development
+    lib        // Libraries used by programs
+    lib64
+    local        // Locally installed software  
+    sbin        // System administration programs
+    share      // Architecture-independent data
+    src        // Source code, often kernel-related
+
+
+------------------------------
+
+= /usr/bin
+contains a huge number of executable programs.
+
+eg:
+    ls
+    cp
+    mv
+    grep
+    find
+    git
+    python3
+    ssh
+    curl
+
+
+Note: On many modern Linux distributions, /bin is actually a symbolic link to /usr/bin.
+
+= Check
+ls -ld /bin  //output -> /bin -> usr/bin
+// This is called usr merge.
+
+
+= Find where a command comes from
+which python3  // output -> /usr/bin/python3
+type -a python3 
+
+------------------------------
+= /usr/sbin
+contains programs primarily used for system administration.
+
+eg:
+  useradd
+  userdel
+  groupadd
+  sshd
+
+= Check
+which useradd  // output -> /usr/sbin/useradd
+
+Note:
+The distinction between /usr/bin and /usr/sbin is less strict on modern Linux systems, because regular users can sometimes execute programs from /usr/sbin.
+The important idea is: /usr/sbin traditionally contains system-administration commands.
+
+------------------------------
+= /usr/lib
+contains libraries and supporting files used by programs.
+
+Conceptually:
+
+Program
+  │
+  ├── executable
+  │      ↓
+  │   /usr/bin
+  │
+  └── libraries
+         ↓
+      /usr/lib
+
+
+// This is similar to application dependencies in modern development.
+
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+------------------------------
+
+
+------------------------------
+
+------------------------------
+
+
+------------------------------
+
+------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
