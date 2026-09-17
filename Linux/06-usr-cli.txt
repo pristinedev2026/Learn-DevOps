@@ -8,6 +8,32 @@ eg:
 /usr/lib
 /usr/share
 
+= 🧠 /usr Cheat Sheet
+/usr
+│
+├── bin       → user programs/commands
+│
+├── sbin      → system administration programs
+│
+├── lib       → libraries
+│
+├── local     → locally installed software
+│   ├── bin
+│   ├── lib
+│   └── share
+│
+├── share     → shared/static data
+│   ├── doc
+│   ├── man
+│   ├── icons
+│   └── applications
+│
+├── include   → C/C++ header files
+│
+└── src       → source code
+
+
+
 
 = /usr(Unix System Resources)
 /usr is one of the most important directories in Linux.
@@ -140,27 +166,78 @@ can contain source code.
 
 ------------------------------
 
+= /usr Vs /var
+/usr
+Mostly contains:
+        Programs
+        Libraries
+        Documentation
+        Shared resources
+
+/var
+Most contains:
+        Logs
+        Caches
+        Databases
+        Spools
+        Application changing data
+
+
+Think:
+        /usr
+         │
+         ├── Programs
+         ├── Libraries
+         └── Static/shared resources
+                ↓
+           Mostly doesn't change frequently
+        
+        
+        /var
+         │
+         ├── logs
+         ├── cache
+         ├── databases
+         └── application data
+                ↓
+           Changes frequently
+        
 ------------------------------
+= /usr Vs /opt
+
+/usr
+Normally contains software integrated into the Linux system/package-management structure.
+
+
+/opt
+Often used for optional/add-on third-party software.
+
+
+Rule: 
+/usr → system-integrated software
+/opt → optional/third-party application packages
 
 ------------------------------
+= $PATH
+echo $PATH
+ls -l $(which git)
 
 ------------------------------
-
-------------------------------
-
-------------------------------
-
-------------------------------
-
-------------------------------
+= Don't manually delete things from /usr
+⚠️ Be careful.
+Do not randomly do: sudo rm -rf /usr/...
+You can break your Linux installation.
 
 
-------------------------------
+Deleting important files from:
+/usr/bin
+/usr/lib
 
-------------------------------
+can cause commands or applications to stop working.
+Instead, use your distribution's package manager.
 
-
-------------------------------
+For Ubuntu/Debian: sudo apt install package-name / sudo apt remove package-name
+For Fedora/RHEL: sudo dnf install package-name / sudo dnf remove package-name
 
 ------------------------------
 
