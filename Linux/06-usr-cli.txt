@@ -99,11 +99,38 @@ Program
 
 
 ------------------------------
-... to be continue....
+= /usr/share
+This directory contains architecture-independent data.
+
+eg:
+/usr/share/doc
+/usr/share/man            // Linux manual pages are commonly stored here.
+/usr/share/icons
+/usr/share/applications
+/usr/share/locale
+
+
+= /usr/share/man
+man ls 
+
 ------------------------------
+= /usr/local
+This is especially important for DevOps.
+It is intended for software installed locally by the administrator, rather than software managed by the operating system's package manager.
+
+= Typical structure
+/usr/local/
+├── bin        // commonly used for locally installed executable commands.
+├── lib
+├── share
+└── ...
 
 ------------------------------
 
+= /usr/include
+This directory is primarily relevant to C/C++ development.
+
+It contains header files such as: /usr/include/
 
 ------------------------------
 
