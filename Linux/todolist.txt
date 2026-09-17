@@ -22,3 +22,8 @@
          spool ✅
          mail ✅
          opt ✅
+5. usr:  bin ✅
+         sbin ✅
+         lib ✅
+         share ✅
+
