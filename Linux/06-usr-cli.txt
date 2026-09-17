@@ -133,6 +133,10 @@ This directory is primarily relevant to C/C++ development.
 It contains header files such as: /usr/include/
 
 ------------------------------
+= /usr/src
+can contain source code.
+
+
 
 ------------------------------
 
