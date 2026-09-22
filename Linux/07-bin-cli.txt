@@ -2,8 +2,235 @@
 /bin 
 
 eg:
+/bin/ls -> ls
+/bin/cp -> cp
+/bin/mv -> mv
+/bin/rm -> rm
+/bin/cat -> cat
+/bin/mkdir -> mkdir
+
+--------------------------------------------
+= What is /bin?
+/bin stands for binary.
+In Linux, a binary is an executable program — something the operating system can run.
+bin is a directory containing essential executable commands needed for basic system operation.
+
+
+--------------------------------------------
+= What does "binary" mean?'
+A binary executable is different from a shell script.
+
+ls -l /bin
+ls -ld /bin
+
+
+= ELF
+Executable and Linkable Format.
+
+ELF 64-bit LSB pie executable ...
+--------------------------------------------
+= commands inside /bin
+| Command | Purpose                        |
+| ------- | ------------------------------ |
+| `ls`    | List files                     |
+| `cp`    | Copy files                     |
+| `mv`    | Move/rename files              |
+| `rm`    | Remove files                   |
+| `cat`   | Display file contents          |
+| `mkdir` | Create directories             |
+| `rmdir` | Remove empty directories       |
+| `touch` | Create/update files            |
+| `pwd`   | Show current directory         |
+| `echo`  | Print text                     |
+| `sh`    | POSIX shell                    |
+| `bash`  | Bash shell, commonly available |
+
+
+--------------------------------------------
+Note:
+/bin
+  ↓
+/usr/bin
+
+// The same executable
+/bin/ls
+/usr/bin/ls
+
+
+= Why was /bin separated from /usr/bin?
+Historically, Linux systems separated files into areas such as:
+/bin
+/usr/bin
+/sbin
+/usr/sbin
+
+
+= Note:
+/bin
+    Essential commands needed for basic operation
+
+/usr/bin
+    Additional user commands
+
+/sbin
+    Essential system administration commands
+
+/usr/sbin
+    Additional system administration commands
+
+
+The distinction is less strict on modern distributions because of /usr merging.
+--------------------------------------------
+= /bin vs /usr/bin
+
+/
+├── bin
+│   ├── ls
+│   ├── cp
+│   ├── mv
+│   ├── rm
+│   └── cat
+│
+└── usr
+    └── bin
+        ├── git
+        ├── python
+        ├── vim
+        └── ...
+
+
+/
+├── bin -> usr/bin
+│
+└── usr
+    └── bin
+        ├── ls
+        ├── cp
+        ├── mv
+        ├── git
+        └── ...
+
+So don't assume that every Linux system physically stores commands separately in /bin.
+
+--------------------------------------------
+= How does Linux find ls?
+When you type: ls 
+the shell uses the PATH environment variable.
+Check it: echo $PATH
+You might see: /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+
+
+= Note:
+You type:
+    ls
+     │
+     ▼
+Shell checks PATH
+     │
+     ├── /usr/local/bin
+     ├── /usr/bin
+     ├── /bin
+     └── ...
+          │
+          ▼
+       finds ls
+          │
+          ▼
+       executes it
+
+--------------------------------------------
+= which vs type
+which ls
+type ls
+type -a ls
+ls
+cd
+cp
+mv
+rm
+mkdir
+cat
+echo
+pwd
+
+
+eg:
+You
+ │
+ │ type: mkdir project
+ ▼
+Shell
+ │
+ │ finds mkdir
+ ▼
+Executable
+ │
+ │ /bin/mkdir
+ ▼
+Linux kernel
+ │
+ ▼
+Filesystem
+ │
+ ▼
+project directory created
+
+--------------------------------------------
+= /bin inside Docker containers
+docker run -it ubuntu bash
+ls /bin
+
+--------------------------------------------
+= /bin vs /sbin
+
+= /bin
 ls
 cp
 mv
-cat
 rm
+cat
+mkdir
+
+
+= /sbin
+mount
+fsck
+reboot
+ip
+
+
+= Note:
+/bin     → /usr/bin
+/sbin    → /usr/sbin
+
+/bin means bin inside the root filesystem.
+/home/user/bin means bin inside a user's home directory.
+
+
+
+ls -ld /bin
+ls /bin | head
+file /bin/ls
+file "$(command -v ls)"
+which ls
+type ls
+echo $PATH
+command -v mkdir
+
+--------------------------------------------
+
+
+/bin
+ │
+ ├── Contains executable programs
+ │
+ ├── Provides essential commands
+ │
+ ├── Historically important for boot/basic operation
+ │
+ └── On modern Linux, often → /usr/bin
+
+
+
+
