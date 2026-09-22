@@ -26,4 +26,9 @@
          sbin ✅
          lib ✅
          share ✅
+6. bin:  ls ✅
+         cp ✅
+         mv ✅
+         rm ✅
+         mkdir ✅
 
