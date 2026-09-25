@@ -249,11 +249,54 @@ sudo mkfs.ext4 /dev/sdb1
     It can destroy existing filesystem data.
 
 ----------------
+= swapon -> Linux can use disk space as swap. swapon activates swap.
+sudo swapon --show   // This lets you inspect active swap areas.
+
+Output: 
+NAME      TYPE      SIZE
+/dev/sda3 partition 4G
 
 
+Conceptually:
+RAM
+ │
+ ├── application memory
+ │
+ └── ...
+       ↓ when needed
+     Swap
+       ↓
+     Disk
+
+
+Swap is slower than RAM but can provide additional virtual memory capacity.
 ----------------
+= swapoff -> disable a swap area.
+sudo swapoff /swapfile
 
+Important Note: Again, don't disable swap randomly on a production machine.
 ----------------
+= sysctl -> inspect and modify certain kernel parameters.
+sysctl
+sysctl -a
+
+You might encounter settings such as:
+                                       net.ipv4.ip_forward
+                                       vm.swappiness
+                                       fs.file-max
+
+eg:
+sysctl net.ipv4.ip_forward // output = net.ipv4.ip_forward = 0
+
+
+This becomes particularly important when working with:
+                                                         Docker
+                                                         Kubernetes
+                                                         Linux networking
+                                                         Reverse proxies
+                                                         Firewalls
+                                                         Container networking
+                                                         Performance tuning
 
 ----------------
 ----------------
