@@ -7,3 +7,188 @@ eg:
 networking
 system administration
 filesystem management
+
+
+= What is /sbin?
+/sbin = System Binaries.
+It contains executable programs primarily used for system administration and system management.
+
+
+
+= The most important distinction:
+| Directory   | Main purpose                                       |
+| ----------- | -------------------------------------------------- |
+| `/bin`      | Essential commands for normal users and the system |
+| `/sbin`     | Essential system-administration commands           |
+| `/usr/bin`  | Most user/application commands                     |
+| `/usr/sbin` | Most non-essential system-administration commands  |
+
+
+Think:
+/bin
+   ↓
+"Commands I commonly use"
+
+ /sbin
+   ↓
+"Commands used to manage the system"
+
+
+------------------------------------------------
+= Why does /sbin exist?
+
+A normal user might execute general-purpose commands:
+                          ls
+                          cp
+                          mv
+                          cat
+                          grep
+
+
+A system administrator, however, needs commands for things such as:
+                          Managing disks
+                          Managing filesystems
+                          Managing networking
+                          Managing services
+                          Managing system startup
+                          Managing users/processes
+
+
+Historically, many of these administrative commands were placed in: /sbin
+
+------------------------------------------------
+= Who normally uses /sbin?
+Many /sbin commands require root privileges.
+
+run administrative commands with: sudo
+                                  sudo fdisk -l
+
+
+
+
+Note:
+
+Normal user
+    ↓
+general commands
+    ↓
+/bin
+/usr/bin
+
+Administrator
+    ↓
+system commands
+    ↓
+/sbin
+/usr/sbin
+
+This is a conceptual distinction, not an absolute rule.
+------------------------------------------------
+
+= Important /sbin commands
+
+= ip -> for network configuration and inspection.
+which ip
+command -v ip
+ip addr      // This displays network interfaces and IP addresses.
+
+
+Use it when troubleshooting:
+Server networking
+Docker networking
+Kubernetes networking
+Containers
+Routing
+IP addresses
+Network interfaces
+
+----------------
+= mount -> connects a filesystem to the Linux filesystem tree.
+mount
+
+Output:
+/dev/sda2 on / type ext4
+/dev/sda1 on /boot type ext4
+
+
+
+Concept:
+Physical/storage device
+        ↓
+Filesystem
+        ↓
+mount
+        ↓
+Linux directory
+
+
+
+/dev/sdb1
+     │
+     │ mount
+     ↓
+/data
+----------------
+= unmount -> the opposite of mount
+This disconnects the filesystem from the directory tree.
+
+sudo unmount /data
+
+
+
+Note:
+
+mount
+   ↓
+attach filesystem
+
+umount
+   ↓
+detach filesystem
+
+
+
+----------------
+
+
+----------------
+
+
+----------------
+
+
+----------------
+
+----------------
+
+----------------
+
+----------------
+
+----------------
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+
