@@ -14,6 +14,28 @@ filesystem management
 It contains executable programs primarily used for system administration and system management.
 
 
+= /sbin Summary
+/sbin
+  ↓
+System Binaries
+  ↓
+System administration
+  ↓
+Networking
+Storage
+Filesystems
+Kernel configuration
+System startup/shutdown
+
+
+Layout:
+/sbin
+   │
+   └── may be a symlink
+          ↓
+       /usr/sbin
+
+
 
 = The most important distinction:
 | Directory   | Main purpose                                       |
@@ -299,31 +321,124 @@ This becomes particularly important when working with:
                                                          Performance tuning
 
 ----------------
-= iptables -> 
-----------------
-----------------
-----------------
-----------------
-----------------
-----------------
-----------------
+= iptables -> manage Linux firewall rules through the traditional iptables interface.
+iptables
+sudo iptables -L
+nftables 
 
-----------------
-------------------------------------------------
+However, modern Linux distributions increasingly use: nftables
+underneath or directly.
+So don't assume that every modern system's firewall configuration should be managed directly with iptables.
 
-
-------------------------------------------------
-
-
-------------------------------------------------
-
-
-------------------------------------------------
-
+Flow:
+iptables
+      ↓
+nftables
+      ↓
+firewalld / ufw
+      ↓
+Cloud security groups
 
 ------------------------------------------------
+= /sbin vs /usr/sbin
+/sbin -> contained essential system binaries.
+/usr/sbin -> contained additional system-administration programs.
 
 
+Historically:
+/sbin
+    ↓
+essential system administration
+
+/usr/sbin
+    ↓
+additional system administration
+
+
+But modern Linux distributions often use a merged /usr layout.
+Can see: /sbin → /usr/sbin
+
+ls -ld /sbin  // output = lrwxrwxrwx ... /sbin -> usr/sbin
+
+
+mean:
+/sbin
+   │
+   └────→ /usr/sbin
+
+So don't be surprised if /sbin doesn't physically contain a separate collection of files.
+------------------------------------------------
+= /bin vs /sbin
+
+/bin -> General system/user operations
+
+General essential commands:
+ls
+cp
+mv
+rm
+cat
+echo
+mkdir
+
+
+/sbin -> System management
+
+System administration:
+mount
+fsck
+reboot
+swapon
+sysctl
+
+------------------------------------------------
+= How to explore /sbin
+ls /sbin
+ls -lah /sbin
+ls /sbin | wc -l // Count entries
+ls  -ld /sbin // symbolic link
+------------------------------------------------
+= Find a command's actual location
+command -v ip 
+Output: /usr/sbin/ip
+
+type ip
+whereis ip
+
+This is useful because modern Linux filesystem layouts can differ.
+------------------------------------------------
+= /sbin and PATH
+echo PATH  // output = /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+Conceptually:
+You type:
+
+ip
+
+     ↓
+
+Shell searches PATH
+
+     ↓
+
+/usr/local/bin
+/usr/bin
+/bin
+/usr/local/sbin
+/usr/sbin
+/sbin
+
+     ↓
+
+finds ip
+
+     ↓
+
+execute it
+
+
+This is why you can type: ip
+instead of: /usr/sbin/bin
 ------------------------------------------------
 
 
