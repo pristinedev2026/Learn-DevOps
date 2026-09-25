@@ -31,4 +31,7 @@
          mv ✅
          rm ✅
          mkdir ✅
+7. sbin: sbin ✅
+         usr/sbin ✅
+
 
