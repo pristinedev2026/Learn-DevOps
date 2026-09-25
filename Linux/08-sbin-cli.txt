@@ -440,12 +440,85 @@ execute it
 This is why you can type: ip
 instead of: /usr/sbin/bin
 ------------------------------------------------
+= CLI
+Many system-level operations involve commands traditionally associated with /sbin and /usr/sbin.
 
+Conceptually:
+Linux servers
+      ↓
+Networking
+      ↓
+Storage
+      ↓
+Filesystems
+      ↓
+Processes
+      ↓
+Services
+      ↓
+Containers
+      ↓
+Kubernetes
+
+
+= Networking
+ip addr
+ip route
+ip link
+
+= Storage
+mount
+unmount
+lsblk
+fdisk
+
+
+= File systems
+fsck
+mkfs
+
+= System management
+reboot
+shutdown
+poweroff
+
+
+= Kernel configuration
+sysctl
 
 ------------------------------------------------
-
+= Important mental model
+Don't memorize /sbin as simply: A folder containing commands
+Instead remember:
+                    Linux
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+   General commands            System commands
+        │                           │
+    /bin /usr/bin              /sbin /usr/sbin
+        │                           │
+        ↓                           ↓
+    Work with files          Manage the system
+    text processing           networking
+    programs                  storage
+    shell commands            filesystems
+                              kernel
+                              boot
+                              services
 
 ------------------------------------------------
-
+= the troubleshooting chain becomes
+Application
+     ↓
+Network
+     ↓
+IP address
+     ↓
+Routing
+     ↓
+Network interface
+     ↓
+Linux kernel
 
 
