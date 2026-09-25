@@ -211,13 +211,60 @@ sudo shutdown -r now
 
 Mean: -r = reboot
 ----------------
+= halt -> system shutdown-related command
+
+Historically:
+halt
+ ↓
+stop the system
+
+
+Modern Linux systems often use systemd underneath, so these commands may ultimately interact with systemctl.
+----------------
+= poweroff -> requests that the system power off.
+sudo poweroff
+
+Conceptually:
+Linux running
+     ↓
+stop services
+     ↓
+shutdown
+     ↓
+power off
+----------------
+= mkfs(Make File System) -> create a filesystem on a storage device/partition
+
+Conceptually:
+/dev/sdb1
+     ↓
+   mkfs
+     ↓
+ext4 filesystem
+
+
+sudo mkfs.ext4 /dev/sdb1
+
+⚠️  Very dangerous if used on the wrong device.
+    It can destroy existing filesystem data.
+
+----------------
+
 
 ----------------
 
 ----------------
 
 ----------------
+----------------
+----------------
+----------------
+----------------
+----------------
+----------------
+----------------
 
+----------------
 ------------------------------------------------
 
 
