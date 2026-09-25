@@ -146,19 +146,70 @@ umount
    ↓
 detach filesystem
 
+----------------
+= fdisk -> for working with disk partitions
 
+sudo fdisk -l
+
+Output:
+Disk /dev/sda: 100 GiB
+Device       Start       End   Size
+/dev/sda1     2048    526335   256M
+/dev/sda2   526336  ...
+
+
+Conceptually:
+Disk
+│
+├── Partition 1
+├── Partition 2
+└── Partition 3
+
+⚠️  Be careful with partition-management commands.
+    Commands such as fdisk can modify disk partition tables.
 
 ----------------
+= fsck(File System Check) -> used to check and repair certain filesystems.
+sudo fsck /dev/sdb1
+
+Conceptually:
+Filesystem
+      ↓
+    fsck
+      ↓
+Check filesystem consistency
 
 
+⚠️ Don't randomly run fsck on mounted or active filesystems. Filesystem repair should be performed according to the filesystem and system's maintenance requirements.
 ----------------
+= reboot -> restart the system.
+sudo reboot
 
-
+COnceptually:
+Running Linux
+      ↓
+shutdown processes
+      ↓
+stop services
+      ↓
+restart
+      ↓
+Linux boots again
 ----------------
+= shutdown -> Used to shut down or restart a Linux machine.
+sudo shutdown -h now
+
+Mean:
+shutdown
+    ↓
+-h = halt
+    ↓
+now = immediately
 
 
-----------------
+sudo shutdown -r now
 
+Mean: -r = reboot
 ----------------
 
 ----------------
