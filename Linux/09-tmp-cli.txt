@@ -1,6 +1,71 @@
 = Temporary file
-/tmp 
+/tmp -> Linux's temporary workspace
+/tmp is a directory used by Linux programs and users to store temporary files that are needed for a short period of time.
 
 
 Note:
 Be careful about relying on files in /tmp permanently. Temporary directories can be cleaned automatically.
+
+
+eg:
+  /tmp/app.tmp
+  /tmp/download.tmp
+  /tmp/session123
+  /tmp/cache-file
+  /tmp/build-12345
+
+Different applications use different naming conventions.
+Don't assume every file has a .tmp extension.
+The temporary file doesn't need to permanently remain on the system.
+A temporary file can have any name.
+------------------------------------------------
+= Why does /tmp exist?
+Programs frequently need temporary storage.
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+------------------------------------------------
+
+------------------------------------------------
+
+
+------------------------------------------------
+
+------------------------------------------------
+
+------------------------------------------------
+
+------------------------------------------------
+
+------------------------------------------------
+------------------------------------------------
+
+
+------------------------------------------------
+------------------------------------------------
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
