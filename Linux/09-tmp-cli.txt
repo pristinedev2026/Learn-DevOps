@@ -56,7 +56,33 @@ The exact cleanup mechanism depends on the Linux distribution and configuration.
 Many modern Linux systems use systemd-tmpfiles to clean temporary files.
 
 ------------------------------------------------
+= Important: Don't use /tmp for permanent data
+Suppose you have an important application configuration: /tmp/my-app-config.conf
+That's generally a bad place for permanent configuration.
+Why?
+Because /tmp is intended for temporary data and files may be cleaned up.
 
+Instead, depending on what you're storing, you might use: /etc
+for system configuration: /var/lib
+for persistent application data or user data: /home/
+
+
+Think:
+Temporary
+    ↓
+/tmp
+
+Configuration
+    ↓
+/etc
+
+Persistent application state
+    ↓
+/var/lib
+
+User files
+    ↓
+/home
 
 ------------------------------------------------
 
