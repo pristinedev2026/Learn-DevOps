@@ -50,7 +50,10 @@ Think:
 
 
 ------------------------------------------------
-
+= Does /tmp get deleted automatically?
+Potentially, yes.
+The exact cleanup mechanism depends on the Linux distribution and configuration.
+Many modern Linux systems use systemd-tmpfiles to clean temporary files.
 
 ------------------------------------------------
 
