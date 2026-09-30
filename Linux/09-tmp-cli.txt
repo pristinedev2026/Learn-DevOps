@@ -18,12 +18,35 @@ Different applications use different naming conventions.
 Don't assume every file has a .tmp extension.
 The temporary file doesn't need to permanently remain on the system.
 A temporary file can have any name.
-------------------------------------------------
+
 = Why does /tmp exist?
 Programs frequently need temporary storage.
 
 
 ------------------------------------------------
+= /tmp vs /var/tmp
+
+| Directory  | Purpose                         | Expected lifetime  |
+| ---------- | ------------------------------- | ------------------ |
+| `/tmp`     | Temporary files                 | Short-lived        |
+| `/var/tmp` | More persistent temporary files | Can survive reboot |
+
+
+/tmp
+Used for temporary data that doesn't need to survive a reboot.
+
+/var/tmp
+Used for temporary data that may need to remain available after reboot.
+
+Think:
+/tmp
+   ↓
+"I need this temporarily."
+
+/var/tmp
+   ↓
+"I need this temporarily,
+ but it may need to survive reboot."
 
 
 ------------------------------------------------
