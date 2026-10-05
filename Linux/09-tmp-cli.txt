@@ -160,6 +160,26 @@ cd /
 rm -rf /tmp/myapp
 
 ------------------------------------------------
+= creates a unique temporary file
+For file:
+mktemp      // output = /tmp/tmp.X7k3pQ9a
+
+This is much safer than manually creating something like: /tmp/test.txt
+because multiple processes could accidentally choose the same filename.
+
+
+
+for directory:
+mktemp -d        // output = /tmp/tmp.8JkLmP2x
+cd /tmp/tmp.8JkLmP2x
+
+
+This is very useful in shell scripts.
+eg:
+TEMP_DIR=$(mktemp -d)
+echo "Working in $TEMP_DIR"
+# Do temporary work here
+rm -rf "$TEMP_DIR"
 
 
 ------------------------------------------------
