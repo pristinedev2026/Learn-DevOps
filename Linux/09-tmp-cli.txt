@@ -142,7 +142,12 @@ Others:  rwx
 Sticky:  enabled
 
 ------------------------------------------------
-
+= Creating a temporary file
+touch /tmp/test.txt
+ls -l /tmp/test.txt   // output = -rw-r--r-- 1 user user 0 Sep 30 15:30 /tmp/test.txt
+echo "Hello Linux" > /tmp/test.txt
+cat /tmp/test.txt
+rm /tmp/test.txt
 
 ------------------------------------------------
 
