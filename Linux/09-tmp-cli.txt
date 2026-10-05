@@ -181,9 +181,31 @@ echo "Working in $TEMP_DIR"
 # Do temporary work here
 rm -rf "$TEMP_DIR"
 
-
 ------------------------------------------------
+= /tmp and applications
 
+eg in CI/CD pipeline:
+Git repository
+       ↓
+CI runner
+       ↓
+Download source
+       ↓
+/tmp/build-123/
+       ↓
+npm install
+       ↓
+npm test
+       ↓
+Build
+       ↓
+Artifact
+       ↓
+Cleanup
+
+
+Temporary build files don't necessarily need to remain permanently.
+So /tmp can be useful for intermediate work.
 ------------------------------------------------
 
 ------------------------------------------------
