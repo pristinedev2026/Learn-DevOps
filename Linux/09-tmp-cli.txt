@@ -207,6 +207,23 @@ Cleanup
 Temporary build files don't necessarily need to remain permanently.
 So /tmp can be useful for intermediate work.
 ------------------------------------------------
+= /tmp and Docker
+docker exec -it mycontainer sh
+ls -la /tmp
+
+You may find temporary files created by applications running inside the container.
+
+eg:
+Container
+│
+├── /app
+├── /etc
+├── /var
+├── /tmp
+└── /usr
+
+/tmp inside a container belongs to the container's filesystem unless you explicitly mount something there.
+
 
 ------------------------------------------------
 
