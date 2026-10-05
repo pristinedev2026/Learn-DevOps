@@ -86,6 +86,60 @@ User files
 
 ------------------------------------------------
 = Permissions of /tmp
+ls -ld /tmp // output = drwxrwxrwt 10 root root 4096 Sep 30 15:00 /tmp
+
+Pay special attention to:
+                            drwxrwxrwt
+                                    ↑
+                                    t
+The final t is called the sticky bit.
+
+
+
+= What is the sticky bit?
+The sticky bit provides an important security behavior for shared directories.
+Normally /tmp is writable by many users.
+  "If everybody can write there, can one user delete another user's temporary files?"
+The sticky bit helps prevent that.
+
+eg:
+/tmp
+│
+├── userA-file
+├── userB-file
+└── userC-file
+
+User A shouldn't normally be able to delete User B's file simply because /tmp is writable.
+The sticky bit restricts deletion/renaming so that it is generally allowed only to:
+                                                                                    the file owner
+                                                                                    the directory owner
+                                                                                    root
+That's why /tmp commonly has: drwxrwxrwt
+instead of simply: drwxrwxrwx
+
+
+
+
+
+= Understanding the /tmp permissions
+d rwx rwx rw t
+│ │   │   │ │
+│ │   │   │ └── sticky bit
+│ │   │   └──── others
+│ │   └──────── group
+│ └──────────── owner
+└────────────── directory
+
+
+More conventionally:
+                  d rwx rwx rwx
+                            ↑
+                            becomes t
+means:
+Owner:   rwx
+Group:   rwx
+Others:  rwx
+Sticky:  enabled
 
 ------------------------------------------------
 
