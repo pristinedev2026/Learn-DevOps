@@ -240,6 +240,23 @@ would be a terrible design if it contains sensitive information and has permissi
 Applications should use appropriate permissions and secure temporary-file APIs.
 
 ------------------------------------------------
+= /tmp and RAM — an important misconception
+You may hear: "/tmp is RAM."
+That's not universally true.
+On some Linux systems, /tmp may be mounted as: tmpfs
+which uses memory and potentially swap.
+But on other systems /tmp can simply be part of a disk-backed filesystem.
+
+= Check
+df -h /tmp
+
+Output:
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           7.8G  1.2M  7.8G   1% /tmp
+
+If you see: tmpfs
+then /tmp is using a memory-backed filesystem.
+But don't assume that every Linux system uses tmpfs for /tmp.
 
 ------------------------------------------------
 
