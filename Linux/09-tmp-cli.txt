@@ -224,9 +224,20 @@ Container
 
 /tmp inside a container belongs to the container's filesystem unless you explicitly mount something there.
 
-
 ------------------------------------------------
+= /tmp and security
+/tmp is an interesting security area because many users and applications may interact with it. 
+Potential problems include: Predictable filenames
+Bad: /tmp/myapp.txt
+A malicious process could potentially interfere with predictable temporary filenames.
+Better: mktemp
+which generates a unique name.
 
+= Incorrect permissions
+A program shouldn't blindly create sensitive information in a world-readable temporary file.
+eg: /tmp/password.txt
+would be a terrible design if it contains sensitive information and has permissive permissions.
+Applications should use appropriate permissions and secure temporary-file APIs.
 
 ------------------------------------------------
 
