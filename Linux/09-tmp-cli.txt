@@ -150,7 +150,14 @@ cat /tmp/test.txt
 rm /tmp/test.txt
 
 ------------------------------------------------
-
+= Creating a temporary directory
+mkdir /tmp/myapp
+cd /tmp/myapp
+touch file1
+touch file2
+ls
+cd /
+rm -rf /tmp/myapp
 
 ------------------------------------------------
 
