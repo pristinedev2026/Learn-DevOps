@@ -259,18 +259,60 @@ then /tmp is using a memory-backed filesystem.
 But don't assume that every Linux system uses tmpfs for /tmp.
 
 ------------------------------------------------
+= /tmp vs /run
+Another useful distinction: 
+        /tmp
+        /var/tmp
+        /run
+
+They all contain temporary/runtime information, but have different purposes.
+
+
+/tmp = General temporary files.
+/var/tmp = Temporary files that may need to survive reboot.
+/run = Runtime information for currently running processes/services.
+
+Think:
+/tmp
+ ↓
+temporary workspace
+
+/var/tmp
+ ↓
+longer-lived temporary workspace
+
+/run
+ ↓
+current system runtime state
 
 ------------------------------------------------
+= CLI
+ls -lah /tmp
+ls -ld /tmp
+du -sh /tmp      // Check disk usage
+df -h /tmp        // Check filesystem
+touch /tmp/devops-test.txt
+echo "DevOps Linux" > /tmp/devops-test.txt
+cat /tmp/devops-test.txt
+mktemp               // Create a temporary file safely
+mktemp -d            // Create a temporary directory safely
+rm /tmp/devops-test.txt
 
 ------------------------------------------------
+= Keys
+/tmp is a shared temporary workspace for Linux programs and users.
 
-------------------------------------------------
-------------------------------------------------
+/tmp
+ │
+ ├── temporary build files
+ ├── temporary downloads
+ ├── application temporary data
+ ├── scripts' temporary files
+ └── temporary processing data
 
 
-------------------------------------------------
-------------------------------------------------
+/etc  → configuration
+/var  → changing/persistent system data
+/tmp  → temporary data
+/run  → current runtime state
 
-------------------------------------------------
-------------------------------------------------
-------------------------------------------------
