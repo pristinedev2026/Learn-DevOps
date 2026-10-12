@@ -35,6 +35,9 @@
          usr/sbin ✅
 8. tmp:  tmp ✅
          var/tmp ✅
+9. opt:  /opt ✅
+         var/opt ✅
+         etc/opt ✅
 
 
 
