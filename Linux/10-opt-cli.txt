@@ -1,7 +1,99 @@
 = Optional software
 /opt 
 
+eg:
+└── opt/
+    ├── google/
+    ├── java/
+    ├── oracle/
+    └── myapp/
+
+= What exactly is /opt?
+/opt is a standard Linux directory intended for optional application software and add-on packages.
+
+Each directory under /opt may contain an application's executable files, libraries, resources, and other supporting files.
 
 eg:
-/opt/myapp
-/opt/company-app
+/opt/myapp/
+├── bin/
+│   └── myapp
+├── lib/
+├── conf/
+└── README.md
+
+Important: /opt is a directory, not a command, package manager, or separate filesystem by definition.
+
+
+= Why does Linux have /opt?
+Imagine that you administer a Linux server and need to install a third-party application.
+You have several possible installation locations:
+      /usr/bin — common executable programs.
+      /usr/local/bin — locally installed executable programs.
+      /opt/myapp — a separate application installation.
+      /home/username — files belonging to a user.
+Using /opt/myapp can make it easier to identify which files belong to the application.
+
+For example, you might have:
+      /opt/
+      ├── monitoring/
+      ├── backup-tool/
+      ├── java/
+      └── company-app/
+
+
+This arrangement is useful for servers that run several applications.
+However, the actual installation location depends on the software vendor and installation method. Not all third-party applications use /opt.
+
+--------------------------------------
+= cli
+ls /
+ls -ld /opt
+
+--------------------------------------
+= What belongs inside /opt?
+/opt/company-app/
+├── bin/
+│   ├── app
+│   └── app-cli
+├── lib/
+│   ├── library-a.so
+│   └── library-b.so
+├── share/
+├── resources/
+└── README.md
+
+
+
+Directory                       Typical purpose
+bin/                            Executable programs and scripts
+lib/                            Libraries used by the application
+share/                          Architecture-independent resources
+resources/                      Application-specific files
+conf/                           Application configuration, if stored alongside the software
+
+
+--------------------------------------
+
+
+--------------------------------------
+
+
+--------------------------------------
+
+
+--------------------------------------
+
+
+--------------------------------------
+
+--------------------------------------
+
+--------------------------------------
+
+
+--------------------------------------
+
+--------------------------------------
+
+
+--------------------------------------
