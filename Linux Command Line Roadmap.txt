@@ -1,0 +1,88 @@
+Linux Command Line Roadmap for DevOps, Cloud and SysAdmin
+Oct 12, 2026 · @Pristine Dev
+Seven stages take you from basic shell use to role-specific Linux work; stages 1 to 4 are shared by DevOps engineers, cloud engineers and sysadmins, and stages 5 to 7 add depth and then split by role.
+It starts after the Linux file system, so navigation and files come first, then text processing, permissions, scripting, services and networking, performance and security, and finally specialization.
+1.	Shell fundamentals
+2.	Text processing and pipelines
+3.	Users, permissions and processes
+4.	Bash scripting
+5.	Services, networking and storage
+6.	Performance, security and internals
+7.	Role-specific specialization
+Stage 1: Beginner, shell fundamentals
+Goal: move around quickly and manipulate files without a GUI.
+•	Navigation and files: ls, cd, pwd, cp, mv, rm, mkdir, touch, ln (hard and symbolic links), tree
+•	Viewing content: cat, less, head, tail (and tail -f for live logs), wc
+•	Finding things: find, locate, which, whereis, file, stat
+•	Help: man, --help, tldr, type
+•	Shell basics: tab completion, history (Ctrl+R), aliases, wildcards (globbing), quoting, environment variables (export, env, PATH)
+•	Editors: nano first, then at least basic vim (open, edit, save, search, quit), since you will need it on servers
+Practice: build a directory tree from scratch, then find all files over 10MB modified in the last 7 days.
+Stage 2: Text processing and pipelines
+Goal: build the core DevOps skill, since most of the job is reading, filtering and transforming text such as logs, configs and command output.
+•	Redirection and pipes: >, >>, <, 2>, 2>&1, |, tee, xargs, /dev/null
+•	Filtering and transforming: grep (with regex and -r, -i, -v, -E), sed, awk, cut, sort, uniq, tr, diff, comm
+•	Structured data: jq for JSON and yq for YAML, both essential for cloud work
+•	Regex: basic and extended regular expressions
+Practice: take an nginx access log and produce the top 10 IPs, the most-hit endpoints, and a count of 5xx errors per hour using only pipes.
+Stage 3: Users, permissions and processes
+Goal: understand who can do what and what is running.
+•	Users and groups: useradd, usermod, userdel, passwd, groupadd, id, whoami, su, sudo, /etc/sudoers and visudo
+•	Permissions: chmod (symbolic and octal), chown, chgrp, umask, special bits (setuid, setgid, sticky), ACLs (getfacl, setfacl)
+•	Processes: ps, top, htop, pgrep, kill, pkill, killall, nice, renice, jobs, bg, fg, nohup, signals (SIGTERM vs SIGKILL)
+•	Package management: apt and dpkg (Debian/Ubuntu), dnf, yum and rpm (RHEL/Amazon Linux), snap
+Practice: create a service user with no login shell, give it access to one directory only, and run a process as that user.
+Stage 4: Shell scripting (Bash)
+Goal: automate everything you do twice.
+•	Basics: shebang, variables, arguments ($1, $@, $#), exit codes ($?)
+•	Logic: if, case, for, while, test operators ([[ ]]), functions
+•	Robustness: set -euo pipefail, trap, input validation, error handling, logging
+•	Tools in scripts: getopts, here-docs, command substitution, arrays, cron and at for scheduling
+•	Quality: shellcheck for linting
+Practice: write a backup script that archives a directory, uploads it to S3 with the AWS CLI, rotates old backups, and logs success or failure.
+Stage 5: Intermediate, services, networking and storage
+Goal: operate and troubleshoot a live server.
+•	systemd: systemctl (start, stop, enable, status), journalctl (filters, -u, -f, --since), writing your own unit files, timers as a cron alternative
+•	Networking, inspect: ip addr, ip route, ss, ping, traceroute, mtr
+•	Networking, DNS and HTTP: dig, nslookup, curl (headers, verbose, POST), wget
+•	Networking, capture and scan: tcpdump, nmap, nc (netcat)
+•	Hostname and DNS config: hostnamectl, /etc/hosts, /etc/resolv.conf
+•	Remote access: ssh (keys, ~/.ssh/config, agent forwarding, port forwarding and tunnels, jump hosts), scp, rsync, sftp, tmux or screen
+•	Disk and storage: df, du, lsblk, fdisk or parted, mkfs, mount, /etc/fstab, lsof, LVM basics, inode troubleshooting
+•	Logs: /var/log, logrotate, rsyslog
+Practice: launch an EC2 or VPS instance, harden SSH, install nginx, write a systemd unit for a small Node app, and debug "why can't I reach port 3000" using ss, curl and tcpdump.
+Stage 6: Advanced, performance, security and internals
+Goal: diagnose hard problems and secure systems.
+•	Performance analysis: vmstat, iostat, sar, free, /proc and /sys, load average, strace, ltrace, perf, dmesg
+•	Kernel and boot: uname, lsmod, modprobe, sysctl, GRUB, the boot process, kernel parameters
+•	Firewalls: iptables or nftables, ufw, firewalld
+•	Access hardening: fail2ban, SELinux or AppArmor, auditd
+•	Crypto and TLS: SSH hardening, openssl, gpg, Let's Encrypt (certbot)
+•	Containers under the hood: namespaces, cgroups, unshare, nsenter, chroot, which bridge to Docker and Kubernetes
+•	Config management: idempotent scripting, then Ansible for fleets
+Practice: simulate high CPU, memory pressure and a full disk, then find each root cause using only CLI tools.
+Stage 7: Role-specific specialization
+The three roles share stages 1 to 6 and differ in tooling and emphasis.
+Focus area	DevOps Engineer	Cloud Engineer	System Administrator
+Core emphasis	Automation, CI/CD, containers	Cloud resources, IaC, cost and scale	Server uptime, users, patching, backups
+Key CLI tools	git, docker, kubectl, helm, terraform, ansible, jq	aws CLI (or gcloud / az), terraform, cloud-init, ssm	systemctl, lvm, rsync, cron, nfs, samba, ldap tools
+Scripting	Bash + Python for pipelines	Bash + Python (boto3) for cloud automation	Bash for maintenance and reporting
+Networking depth	Service discovery, ports, ingress	VPC, security groups, load balancers, DNS	DHCP, DNS servers, firewalls, VPN
+Observability	Prometheus, Grafana, ELK	CloudWatch, cost tools	nagios, zabbix, log monitoring
+Unique skills	Pipeline debugging, image optimization	Instance bootstrapping, IAM from CLI	Patch cycles, disaster recovery, user lifecycle
+Role-specific practice:
+•	DevOps: a script that builds a Docker image, runs tests, and deploys over SSH, then move it into GitHub Actions.
+•	Cloud: bootstrap a server fully via user-data or cloud-init and manage S3, EC2 and IAM entirely from the aws CLI.
+•	SysAdmin: set up a server with scheduled backups, log rotation, monitoring alerts, and a documented restore test.
+Suggested pacing
+The full path takes roughly 10 to 15 weeks, with stage 7 running in parallel with your other DevOps phases.
+Stage	Time (approx.)
+1. Shell fundamentals	3 to 5 days
+2. Text processing	1 week
+3. Users, permissions, processes	1 week
+4. Bash scripting	1 to 2 weeks
+5. Services, networking, storage	2 to 3 weeks
+6. Advanced and security	2 to 3 weeks
+7. Role specialization	Ongoing
+With prior DevOps experience, you may be able to skim Stage 1 and move quickly through Stage 3, and spend the saved time on Stages 2, 5 and 6, where gaps usually show up.
+Best way to learn: use a real Ubuntu or Amazon Linux VM rather than a tutorial sandbox, break it on purpose, then fix it.
