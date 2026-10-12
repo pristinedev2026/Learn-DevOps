@@ -46,9 +46,27 @@ However, the actual installation location depends on the software vendor and ins
 
 --------------------------------------
 = cli
-ls /
-ls -ld /opt
+ls /opt            //    Lists entries under /opt
+ls -ld /opt        //    Shows permissions for /opt itself
+ls -lah /opt        //    Displays a detailed listing
+find /opt -maxdepth 2 -type d        //    Lists directories up to two levels below /opt
+du -sh /opt                        //    Reports approximate disk usage
+df -h /opt                        //    Shows disk space for the filesystem containing /opt
+readlink -f /opt                    //    Resolves the path to its canonical form
+ls -l /opt/myapp/bin/                // Inspect the result
+file /opt/myapp/bin/myapp            //    Inspect the result
+stat /opt        // inspect ownership
+namei -l /opt/myapp/bin/myapp        //   inspect the complete path's permissions
+export PATH="/opt/myapp/bin:$PATH"
+sudo ln -s /opt/myapp/bin/myapp /usr/local/bin/myapp
+command -v myapp
+tar -tzf application.tar.gz
+sudo tar -xzf application.tar.gz -C /opt
 
+
+Security advice: Avoid using chmod -R 777 /opt. 
+It can allow unauthorized users to modify application files. 
+Use the minimum permissions needed by the application.
 --------------------------------------
 = What belongs inside /opt?
 /opt/company-app/
@@ -73,27 +91,10 @@ conf/                           Application configuration, if stored alongside t
 
 
 --------------------------------------
-
-
---------------------------------------
-
-
---------------------------------------
-
+= /etc/opt and /var/opt
+/opt/company-app/        # Software files
+/etc/opt/company-app/    # Configuration, if used
+/var/opt/company-app/    # Variable data, if used
 
 --------------------------------------
 
-
---------------------------------------
-
---------------------------------------
-
---------------------------------------
-
-
---------------------------------------
-
---------------------------------------
-
-
---------------------------------------
